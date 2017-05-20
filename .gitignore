@@ -1,0 +1,9 @@
+*vendor*
+/node_modules
+/public/storage
+*.filerun.*
+/.idea
+Homestead.json
+Homestead.yaml
+/bootstrap/compiled.php
+.htaccess
