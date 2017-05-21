@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('steam_id');
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

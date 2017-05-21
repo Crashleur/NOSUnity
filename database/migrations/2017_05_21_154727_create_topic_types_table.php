@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserTypesTable extends Migration
+class CreateTopicTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateUserTypesTable extends Migration
      */
     public function up()
     {
-      Schema::create('user_types', function (Blueprint $table) {
-          $table->increments('id');
+      Schema::create('topic_types', function (Blueprint $table) {
+          $$table->increments('id');
           $table->string('slug');
-          $table->string('rôle_admin')->nullable();
+          $table->text('name');
+
           $table->timestamps();
           $table->softDeletes();
       });
@@ -29,6 +30,6 @@ class CreateUserTypesTable extends Migration
      */
     public function down()
     {
-      Schema::drop('user_types');
+      Schema::drop('topic_types');
     }
 }
