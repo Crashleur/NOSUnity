@@ -15,15 +15,21 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('firstname');
-            $table->string('lastname');
+            $table->string('firstname')->nullable();
+            $table->string('lastname')->nullable();
             $table->string('email')->unique();
             $table->string('password');
             $table->integer('age');
-            $table->string('username');
+            $table->string('username')->unique();
             $table->string('login');
-            $table->string('avatar');
-            $table->string('steam_id');
+            $table->string('steam_id')->nullable();
+            $table->boolean('whitelisted')->default(false);
+            $table->string('twitch')->nullable();
+            $table->string('youtube')->nullable();
+
+            $table->integer('link_id')->nullable();
+            $table->foreign('link_id')->references('id')->on('link');
+
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

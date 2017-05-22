@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTopicTypesTable extends Migration
+class CreateTournamentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,15 @@ class CreateTopicTypesTable extends Migration
      */
     public function up()
     {
-      Schema::create('topic_types', function (Blueprint $table) {
+      Schema::create('tournaments', function (Blueprint $table) {
           $table->increments('id');
-          $table->string('slug');
-          $table->text('name');
+
+          $table->integer('game_id');
+          $table->foreign('game_id')->references('id')->on('games');
+
+          $table->integer('user_id');
+          $table->foreign('user_id')->references('id')->on('users');
+
           $table->timestamps();
           $table->softDeletes();
       });
@@ -29,6 +34,6 @@ class CreateTopicTypesTable extends Migration
      */
     public function down()
     {
-      Schema::drop('topic_types');
+      Schema::drop('tournaments');
     }
 }
