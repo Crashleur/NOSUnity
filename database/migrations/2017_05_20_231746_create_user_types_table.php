@@ -17,6 +17,10 @@ class CreateUserTypesTable extends Migration
           $table->increments('id');
           $table->string('slug');
           $table->string('rôle_admin')->nullable();
+
+          $table->integer('link_id');
+          $table->foreign('link_id')->references('id')->on('link');
+
           $table->timestamps();
           $table->softDeletes();
       });

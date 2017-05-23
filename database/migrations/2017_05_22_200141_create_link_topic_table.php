@@ -13,7 +13,16 @@ class CreateLinkTopicTable extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('link_topic', function (Blueprint $table) {
+        $table->integer('link_id');
+        $table->foreign('link_id')->references('id')->on('links');
+
+        $table->integer('topic_id');
+        $table->foreign('topic_id')->references('id')->on('topics');
+
+        $table->timestamps();
+        $table->softDeletes();
+      });
     }
 
     /**
@@ -23,6 +32,6 @@ class CreateLinkTopicTable extends Migration
      */
     public function down()
     {
-        //
+      Schema::drop('link_topic');
     }
 }
