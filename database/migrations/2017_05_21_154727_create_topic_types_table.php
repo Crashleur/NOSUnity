@@ -17,6 +17,10 @@ class CreateTopicTypesTable extends Migration
           $table->increments('id');
           $table->string('slug');
           $table->text('name');
+
+          $table->integer('link_id')->nullable();
+          $table->foreign('link_id')->references('id')->on('link');
+
           $table->timestamps();
           $table->softDeletes();
       });

@@ -16,11 +16,16 @@ class CreateTournamentsTable extends Migration
       Schema::create('tournaments', function (Blueprint $table) {
           $table->increments('id');
 
+          $table->datetime('start_date')->nullable();
+
           $table->integer('game_id');
           $table->foreign('game_id')->references('id')->on('games');
 
           $table->integer('user_id');
           $table->foreign('user_id')->references('id')->on('users');
+
+          $table->integer('topic_id');
+          $table->foreign('topic_id')->references('id')->on('topics');
 
           $table->timestamps();
           $table->softDeletes();

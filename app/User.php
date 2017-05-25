@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+      'email', 'password', 'firstname', 'lastname', 'age', 'username', 'login', 'steam_id', 'whitelisted', 'twitch', 'youtube'
     ];
 
     /**
@@ -26,4 +26,29 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    public function games(){
+        return $this->belongsToMany('App\Game');
+    }
+
+    public function messages(){
+        return $this->hasMany('App\Message');
+    }
+
+    public function topics(){
+        return $this->hasMany('App\Topic');
+    }
+
+    public function link(){
+        return $this->hasOne('App\Link');
+    }
+
+    public function tournaments(){
+        return $this->hasMany('App\Tournament');
+    }
+
+    public function user_type(){
+        return $this->belongsTo('App\UserType');
+    }
 }

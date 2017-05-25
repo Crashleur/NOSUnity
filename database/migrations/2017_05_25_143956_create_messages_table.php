@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLinkTopicTable extends Migration
+class CreateMessagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateLinkTopicTable extends Migration
      */
     public function up()
     {
-      Schema::create('link_topic', function (Blueprint $table) {
-        $table->integer('link_id');
-        $table->foreign('link_id')->references('id')->on('links');
+      Schema::create('messages', function (Blueprint $table) {
+        $table->increments('id');
+        $table->('decription');
+
+        $table->integer('user_id');
+        $table->foreign('user_id')->references('id')->on('users');
 
         $table->integer('topic_id');
         $table->foreign('topic_id')->references('id')->on('topics');
@@ -32,6 +35,6 @@ class CreateLinkTopicTable extends Migration
      */
     public function down()
     {
-      Schema::drop('link_topic');
+      Schema::drop('messages');
     }
 }

@@ -30,6 +30,9 @@ class CreateUsersTable extends Migration
             $table->integer('link_id')->nullable();
             $table->foreign('link_id')->references('id')->on('link');
 
+            $table->integer('user_type_id')->default(1);
+            $table->foreign('user_type_id')->references('id')->on('user_types');
+
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

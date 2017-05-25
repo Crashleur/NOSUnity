@@ -16,6 +16,13 @@ class CreateLinksTable extends Migration
       Schema::create('links', function (Blueprint $table) {
           $table->increments('id');
           $table->string('destination');
+
+          $table->integer('message_id')->nullable();
+          $table->foreign('message_id')->references('id')->on('messages');
+
+          $table->integer('topic_id')->nullable();
+          $table->foreign('topic_id')->references('id')->on('topics');
+
           $table->timestamps();
           $table->softDeletes();
       });

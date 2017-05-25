@@ -18,6 +18,9 @@ class CreateUserTypesTable extends Migration
           $table->string('slug');
           $table->string('rôle_admin')->nullable();
 
+          $table->integer('game_id')->nullable();
+          $table->foreign('game_id')->references('id')->on('games');
+
           $table->integer('link_id');
           $table->foreign('link_id')->references('id')->on('link');
 

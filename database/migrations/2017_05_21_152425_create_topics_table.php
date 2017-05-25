@@ -17,9 +17,16 @@ class CreateTopicsTable extends Migration
           $table->increments('id');
           $table->string('title');
           $table->text('description');
+          $table->boolean('open');
 
           $table->integer('user_id');
           $table->foreign('user_id')->references('id')->on('users');
+
+          $table->integer('topic_type_id');
+          $table->foreign('topic_type_id')->references('id')->on('topic_types');
+
+          $table->integer('tournament_id')->nullable();
+          $table->foreign('tournament_id')->references('id')->on('tournaments');
 
           $table->timestamps();
           $table->softDeletes();
