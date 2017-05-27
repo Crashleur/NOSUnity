@@ -48,7 +48,15 @@ class User extends Authenticatable
         return $this->hasMany('App\Tournament');
     }
 
-    public function user_type(){
-        return $this->belongsTo('App\UserType');
+    public function teams_creator(){
+        return $this->hasMany('App\Team', 'teams');
+    }
+
+    public function teams(){
+        return $this->belongsToMany('App\Team');
+    }
+
+    public function user_types(){
+        return $this->belongsToMany('App\UserType');
     }
 }

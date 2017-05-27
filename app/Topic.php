@@ -15,7 +15,7 @@ class Topic extends Model
   }
 
   public function messages(){
-      return $this->belongsToMany('App\Message');
+      return $this->hasMany('App\Message');
   }
 
   public function user(){

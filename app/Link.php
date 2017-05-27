@@ -22,6 +22,10 @@ class Link extends Model
       return $this->hasOne('App\User');
   }
 
+  public function team(){
+      return $this->hasOne('App\Team');
+  }
+
   public function user_type(){
       return $this->hasOne('App\UserType');
   }

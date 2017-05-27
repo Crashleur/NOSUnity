@@ -16,7 +16,8 @@ class CreateGamesTable extends Migration
       Schema::create('games', function (Blueprint $table) {
           $table->increments('id');
           $table->text('name');
-          
+          $table->integer('max_team_number');
+
           $table->integer('link_id');
           $table->foreign('link_id')->references('id')->on('link');
 

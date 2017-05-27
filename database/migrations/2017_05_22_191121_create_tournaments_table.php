@@ -17,6 +17,8 @@ class CreateTournamentsTable extends Migration
           $table->increments('id');
 
           $table->datetime('start_date')->nullable();
+          $table->integer('team_requirement_number')->nullable();
+          $table->integer('max_participate_team')->nullable();
 
           $table->integer('game_id');
           $table->foreign('game_id')->references('id')->on('games');

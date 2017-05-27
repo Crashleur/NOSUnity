@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Tournament extends Model
 {
   protected $fillable = [
-      'start_date'
+      'start_date', 'team_requirement_number', 'max_participate_team'
   ];
 
   public function topic(){
@@ -16,6 +16,10 @@ class Tournament extends Model
 
   public function game(){
       return $this->belongsTo('App\Game');
+  }
+
+  public function teams(){
+      return $this->belongsToMany('App\Team');
   }
 
   public function user(){

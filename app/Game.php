@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Game extends Model
 {
   protected $fillable = [
-      'name'
+      'name', 'max_team_number'
   ];
 
   public function link(){
@@ -24,5 +24,9 @@ class Game extends Model
 
   public function user_types(){
       return $this->hasMany('App\UserType');
+  }
+
+  public function teams(){
+      return $this->hasMany('App\Team');
   }
 }

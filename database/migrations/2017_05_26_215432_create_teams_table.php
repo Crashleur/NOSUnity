@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMessagesTable extends Migration
+class CreateTeamsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,18 @@ class CreateMessagesTable extends Migration
      */
     public function up()
     {
-      Schema::create('messages', function (Blueprint $table) {
+      Schema::create('teams', function (Blueprint $table) {
         $table->increments('id');
-        $table->text('decription');
+        $table->string('name');
 
         $table->integer('user_id');
         $table->foreign('user_id')->references('id')->on('users');
 
-        $table->integer('topic_id');
-        $table->foreign('topic_id')->references('id')->on('topics');
+        $table->integer('link_id')->nullable();
+        $table->foreign('link_id')->references('id')->on('links');
+
+        $table->integer('game_id');
+        $table->foreign('game_id')->references('id')->on('games');
 
         $table->timestamps();
         $table->softDeletes();
@@ -35,6 +38,6 @@ class CreateMessagesTable extends Migration
      */
     public function down()
     {
-      Schema::drop('messages');
+      Schema::drop('teams');
     }
 }

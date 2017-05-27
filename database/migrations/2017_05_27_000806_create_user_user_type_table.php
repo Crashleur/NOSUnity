@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMessagesTable extends Migration
+class CreateUserUserTypeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,12 @@ class CreateMessagesTable extends Migration
      */
     public function up()
     {
-      Schema::create('messages', function (Blueprint $table) {
-        $table->increments('id');
-        $table->text('decription');
-
+      Schema::create('user_user_type', function (Blueprint $table) {
         $table->integer('user_id');
         $table->foreign('user_id')->references('id')->on('users');
 
-        $table->integer('topic_id');
-        $table->foreign('topic_id')->references('id')->on('topics');
+        $table->integer('user_type_id');
+        $table->foreign('user_type_id')->references('id')->on('user_types');
 
         $table->timestamps();
         $table->softDeletes();
@@ -35,6 +32,6 @@ class CreateMessagesTable extends Migration
      */
     public function down()
     {
-      Schema::drop('messages');
+      Schema::drop('team_tournament');
     }
 }
