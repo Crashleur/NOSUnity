@@ -17,6 +17,8 @@ class CreateTeamsTable extends Migration
         $table->increments('id');
         $table->string('name');
 
+        $table->integer('score')->nullable();
+
         $table->integer('user_id');
         $table->foreign('user_id')->references('id')->on('users');
 

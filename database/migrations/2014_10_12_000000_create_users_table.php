@@ -26,6 +26,11 @@ class CreateUsersTable extends Migration
             $table->boolean('whitelisted')->default(false);
             $table->string('twitch')->nullable();
             $table->string('youtube')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
+
+            $table->integer('score')->nullable();
+
 
             $table->integer('link_id')->nullable();
             $table->foreign('link_id')->references('id')->on('link');
