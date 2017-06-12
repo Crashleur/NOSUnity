@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class TopicType extends Model
 {
+    const $annonce = "ANNONCE";
+    const $reunion = "REUNION";
+
+
   protected $fillable = [
       'slug', 'name'
   ];

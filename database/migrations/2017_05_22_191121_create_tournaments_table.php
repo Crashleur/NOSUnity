@@ -19,9 +19,13 @@ class CreateTournamentsTable extends Migration
           $table->datetime('start_date')->nullable();
           $table->integer('team_requirement_number')->nullable();
           $table->integer('max_participate_team')->nullable();
+          $table->boolean('open')->default(true);
+
           // 0 = arbres tournois
           // 1 = classement tournois
           $table->tinyInteger('type');
+
+          $table->text('règlement');
 
           $table->integer('game_id');
           $table->foreign('game_id')->references('id')->on('games');
