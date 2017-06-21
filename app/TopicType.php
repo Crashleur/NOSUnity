@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class TopicType extends Model
 {
-    const $annonce = "ANNONCE";
-    const $reunion = "REUNION";
+    const annonce = "ANNONCE";
+    const reunion = "REUNION";
 
 
   protected $fillable = [
