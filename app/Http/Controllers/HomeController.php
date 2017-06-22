@@ -34,14 +34,14 @@ class HomeController extends Controller
         //$reunion = Topic::where('topic_type.slug', TopicType::reunion)->orderBy('created_at', 'desc')->first();
         $classment_user = User::orderBy('score', 'desc')->limit(10)->get();
         $classment_team = Team::orderBy('score', 'desc')->limit(10)->get();
-        $tournaments = Tournament::where('open', true)->get();
+        //$tournaments = Tournament::where('open', true)->get();
 
         $data = array(
             //'annonces' => $annonces,
             //'reunion' => $reunion,
             'classment_user' => $classment_user,
             'classment_team' => $classment_team,
-            'tournaments' => $tournaments
+            //'tournaments' => $tournaments
         );
         return view('home.accueil');
     }
