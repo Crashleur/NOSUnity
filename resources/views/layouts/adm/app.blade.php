@@ -22,15 +22,17 @@
 
         <nav class="navbar navbar-default">
             <div class="container-fluid">
-                {{-- <div class="navbar-header">
-                <a class="navbar-brand" href="#">Brand</a>
-            </div> --}}
+                <div class="navbar-header">
+                <a class="navbar-brand" href="{{ route('index') }}"><img style="width: 30px" src="img/logo.png" alt="logo honoris"></a>
+            </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     @if (Auth::guest())
                         <li class="nav-right"><a href="{{ route('login') }}"> Connexion</a></li>
                         <li class="nav-right"><a href="{{ route('register') }}">Inscription</a></li>
                     @else
+                        <li class="nav-right"><a href="#">Bienvenu à toi <strong>{{ Auth::user()->username }}</strong></a></li>
+                        <li class="nav-right"><a href="{{ route('logout') }}">Déconnexion</a></li>
                     @endif
                 </ul>
             </div>

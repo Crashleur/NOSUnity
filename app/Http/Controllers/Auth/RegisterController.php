@@ -48,9 +48,17 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
+            'lastname' => 'max:255',
+            'firstname' => 'max:255',
+            'age' => 'required|numeric',
             'email' => 'required|email|max:255|unique:users',
+            'username' => 'required|max:255',
+            'login' => 'required|max:255',
             'password' => 'required|min:6|confirmed',
+            'twitch' => 'max:255',
+            'youtube' => 'max:255',
+            'facebook' => 'max:255',
+            'twitter' => 'max:255',
         ]);
     }
 
@@ -62,10 +70,31 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+        $datas = array();
+        if($data['lastname'] != null || $data['lastname'] != '')
+            $datas['lastname'] = $data['lastname'];
+
+        if($data['firstname'] != null || $data['firstname'] != '')
+            $datas['firstname'] = $data['firstname'];
+
+        $datas['age'] = $data['age'];
+        $datas['email'] = $data['email'];
+        $datas['username'] = $data['username'];
+        $datas['login'] = $data['login'];
+        $datas['password'] = bcrypt($data['password']);
+
+        if($data['twitch'] != null || $data['twitch'] != '')
+            $datas['twitch'] = $data['twitch'];
+
+        if($data['youtube'] != null || $data['youtube'] != '')
+            $datas['youtube'] = $data['youtube'];
+
+        if($data['facebook'] != null || $data['facebook'] != '')
+            $datas['facebook'] = $data['facebook'];
+
+        if($data['twitter'] != null || $data['twitter'] != '')
+            $datas['twitter'] = $data['twitter'];
+
+        return User::create($datas);
     }
 }
