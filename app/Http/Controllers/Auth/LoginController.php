@@ -51,7 +51,7 @@ class LoginController extends Controller
            return redirect('home');
        }
        else {
-          var_dump('test');
+           return redirect()->back();
        }
    }
 

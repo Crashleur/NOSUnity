@@ -117,6 +117,23 @@
                             </div>
                         </div>
 
+                            <div class="form-group">
+                                {{-- {{
+                                    //Html::image($user->avatar_path,
+                                    //'Avatar par default de l\'utilisateur',
+                                    //array('class' => 'responsive-img'))
+                                }} --}}
+                                <div class="collection file-field input-field">
+                                    <a class="collection-item">
+                                        Modifier votre photo
+                                        <input name="avatar" type="file">
+                                    </a>
+                                    <div class="file-path-wrapper hide">
+                                        <input class="file-path validate" type="text">
+                                    </div>
+                                </div>
+                            </div>
+
                         <div class="form-group{{ $errors->has('twitch') ? ' has-error' : '' }}">
                             <label for="twitch" class="col-md-4 control-label">Lien Twitch</label>
 
