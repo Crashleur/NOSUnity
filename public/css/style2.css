@@ -1,0 +1,86 @@
+/* -------------------------------------- All -------------------------------------- */
+body {
+  font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #e9944e;
+  font-size: 13px;
+  color: #596267;
+  overflow-x: hidden;
+}
+
+h2{
+    margin-bottom: 15px !important;
+    margin-top: 15px !important;
+}
+.form-control,
+.single-line {
+  background-color: #FFFFFF;
+  background-image: none;
+  border: 1px solid #bbbdbe;
+  border-radius: 1px;
+  color: inherit;
+  display: block;
+  padding: 6px 12px;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  width: 100%;
+  font-size: 14px;
+}
+
+/* -------------------------------------- Login -------------------------------------- */
+.btn-validate{
+    background-color: #e9944e;
+    color: #ffffff;
+}
+.btn-validate:hover{
+    background-color: #cd8245;
+    color: #ffffff;
+}
+.btn-validate:focus{
+    background-color: #cd8245;
+    color: #ffffff;
+}
+
+.form-control:focus, .single-line:focus{
+    border-color : #e9944e !important;
+}
+.middle-box{
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.8);
+    margin-top: 5%;
+    border-radius: 1px;
+}
+.checkbox .cr{
+    position: relative;
+    display: inline-block;
+    border: 1px solid #e9944e;
+    border-radius: .25em;
+    width: 1.3em;
+    height: 1.3em;
+    float: left;
+    margin-right: .5em;
+}
+
+.checkbox label{
+    padding-left: 0;
+}
+.checkbox .cr .cr-icon{
+    position: absolute;
+    font-size: .8em;
+    line-height: 0;
+    top: 50%;
+    left: 20%;
+}
+.checkbox label input[type="checkbox"]{
+    display: none;
+}
+.checkbox label input[type="checkbox"] + .cr > .cr-icon{
+    transform: scale(3) rotateZ(-20deg);
+    opacity: 0;
+    transition: all .3s ease-in;
+}
+.checkbox label input[type="checkbox"]:checked + .cr > .cr-icon{
+    transform: scale(1) rotateZ(0deg);
+    opacity: 1;
+}
+.checkbox label input[type="checkbox"]:disabled + .cr{
+    opacity: .5;
+}

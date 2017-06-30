@@ -1876,19 +1876,7 @@ div.dt-button-info {
 .i-checks {
   padding-left: 0;
 }
-.form-control,
-.single-line {
-  background-color: #FFFFFF;
-  background-image: none;
-  border: 1px solid #e5e6e7;
-  border-radius: 1px;
-  color: inherit;
-  display: block;
-  padding: 6px 12px;
-  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
-  width: 100%;
-  font-size: 14px;
-}
+
 .form-control:focus,
 .single-line:focus {
   border-color: #1c84c6 !important;
@@ -3375,13 +3363,6 @@ body.tour-open .animated {
 .sidebar-container .setings-item {
   padding: 15px 20px;
   border-bottom: 1px solid #e7eaec;
-}
-body {
-  font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #9f9f9f;
-  font-size: 13px;
-  color: #676a6c;
-  overflow-x: hidden;
 }
 html,
 body {
