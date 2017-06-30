@@ -24,6 +24,7 @@
 
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/style2.css" rel="stylesheet">
 </head>
 <body>
     <header style="margin:0;z-index:990;">
