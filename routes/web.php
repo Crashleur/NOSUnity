@@ -17,7 +17,9 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/', 'HomeController@index')->name('index');
 
-
+//###  USER ###//
+Route::get('profil', 'UserController@getEditAuth')->name('edit_auth');
+Route::post('avatar', 'UserController@postAvatar')->name('post_avatar');
 
 
 // Authentication Routes...

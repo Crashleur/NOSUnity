@@ -81,7 +81,7 @@ class RegisterController extends Controller
         $datas['email'] = $data['email'];
         $datas['username'] = $data['username'];
         $datas['login'] = $data['login'];
-        $datas['password'] = $data['password'];
+        $datas['password'] = bcrypt($data['password']);
 
         if($data['twitch'] != null || $data['twitch'] != '')
             $datas['twitch'] = $data['twitch'];

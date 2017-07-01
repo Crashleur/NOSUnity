@@ -185,22 +185,4 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-        // $('#avatar').attr('src', $(this).val());
-        // var image = document.getElementById('avatar');
-        // var cropper = new Cropper(image, {
-        //     aspectRatio: 4 / 3,
-        //     background: false,
-        //     autoCropArea: 1,
-        //     crop: function(e) {
-        //         // console.log(e.detail.x);
-        //         // console.log(e.detail.y);
-        //         // console.log(e.detail.width);
-        //         // console.log(e.detail.height);
-        //         // console.log(e.detail.rotate);
-        //         // console.log(e.detail.scaleX);
-        //         // console.log(e.detail.scaleY);
-        //     }
-        // });
-    </script>
 @endsection

@@ -23,6 +23,9 @@ class CreateLinksTable extends Migration
           $table->integer('topic_id')->nullable();
           $table->foreign('topic_id')->references('id')->on('topics');
 
+          $table->integer('user_id')->nullable();
+          $table->foreign('user_id')->references('id')->on('users');
+
           $table->timestamps();
           $table->softDeletes();
       });
