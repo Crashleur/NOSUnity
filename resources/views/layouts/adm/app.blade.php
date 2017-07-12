@@ -35,6 +35,9 @@
                     <a class="navbar-brand" href="{{ route('index') }}"><img style="width: 30px" src="img/logo.png" alt="logo honoris"></a>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">Forum</a></li>
+                    </ul>
                     <ul class="nav navbar-nav navbar-right">
                         @if (Auth::guest())
                             <li class="nav-right"><a href="{{ route('login') }}"> Connexion</a></li>
@@ -42,7 +45,18 @@
                         @else
                             <li class="dropdown nav-right">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    Bienvenu à toi <strong>{{ Auth::user()->username }}</strong> <span class="caret"></span>
+                                    @if(count(Auth::user()->links) <= 0 )
+                                        <strong><img id="navAvatar" src="img/default_30.png" alt="image de profil">  {{ Auth::user()->username }}</strong>
+                                        <span class="caret"></span>
+                                    @else
+                                        @foreach (Auth::user()->links as $link)
+                                            @if($link->type == 'avatar')
+                                                <strong><img id="navAvatar" src="{{asset(json_decode($link->destination, true)['30'])}}" alt="image de profil"> {{ Auth::user()->username }}</strong>
+                                                <span id='caret' class="caret"></span>
+                                                @break
+                                            @endif
+                                        @endforeach
+                                    @endif
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a href="{{ route('edit_auth') }}">Modifier mon profile</a></li>

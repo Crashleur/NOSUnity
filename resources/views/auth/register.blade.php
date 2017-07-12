@@ -38,15 +38,15 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('age') ? ' has-error' : '' }}">
-                                <label for="age" class="col-md-4 control-label">Age *</label>
+                            <div class="form-group{{ $errors->has('birth') ? ' has-error' : '' }}">
+                                <label for="birth" class="col-md-4 control-label">Date de naissance *</label>
 
                                 <div class="col-md-6">
-                                    <input id="age" type="number" class="form-control" name="age" value="{{ old('age') }}" required>
+                                    <input id="birth" type="date" class="form-control" name="birth" value="{{ old('birth') }}" required>
 
-                                    @if ($errors->has('age'))
+                                    @if ($errors->has('birth'))
                                         <span class="help-block">
-                                            <strong>{{ $errors->first('age') }}</strong>
+                                            <strong>{{ $errors->first('birth') }}</strong>
                                         </span>
                                     @endif
                                 </div>

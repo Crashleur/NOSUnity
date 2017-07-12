@@ -6,35 +6,40 @@ use Illuminate\Database\Eloquent\Model;
 
 class Link extends Model
 {
-  protected $fillable = [
-      'destination'
-  ];
 
-  public function message(){
-      return $this->belongsTo('App\Message');
-  }
+    protected $casts = [
+        'config' => 'array'
+    ];
 
-  public function topic(){
-      return $this->belongsTo('App\Topic');
-  }
+    protected $fillable = [
+        'destination', 'type'
+    ];
 
-  public function user(){
-      return $this->hasOne('App\User');
-  }
+    public function message(){
+        return $this->belongsTo('App\Message');
+    }
 
-  public function team(){
-      return $this->hasOne('App\Team');
-  }
+    public function topic(){
+        return $this->belongsTo('App\Topic');
+    }
 
-  public function user_type(){
-      return $this->hasOne('App\UserType');
-  }
+    public function user(){
+        return $this->belongsToOne('App\User');
+    }
 
-  public function topic_type(){
-      return $this->hasOne('App\TopicType');
-  }
+    public function team(){
+        return $this->hasOne('App\Team');
+    }
 
-  public function game(){
-      return $this->hasOne('App\Game');
-  }
+    public function user_type(){
+        return $this->hasOne('App\UserType');
+    }
+
+    public function topic_type(){
+        return $this->hasOne('App\TopicType');
+    }
+
+    public function game(){
+        return $this->hasOne('App\Game');
+    }
 }

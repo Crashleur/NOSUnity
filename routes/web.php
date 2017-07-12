@@ -19,7 +19,10 @@ Route::get('/', 'HomeController@index')->name('index');
 
 //###  USER ###//
 Route::get('profil', 'UserController@getEditAuth')->name('edit_auth');
-Route::post('avatar', 'UserController@postAvatar')->name('post_avatar');
+Route::post('new_avatar', 'UserController@newAvatar')->name('new_avatar');
+Route::post('cancel_avatar', 'UserController@cancelAvatar')->name('cancel_avatar');
+Route::post('post_avatar', 'UserController@postAvatar')->name('post_avatar');
+
 
 
 // Authentication Routes...

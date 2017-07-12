@@ -23,34 +23,34 @@ class RegisterController extends Controller
     use RegistersUsers;
 
     /**
-     * Where to redirect users after login / registration.
-     *
-     * @var string
-     */
+    * Where to redirect users after login / registration.
+    *
+    * @var string
+    */
     protected $redirectTo = '/home';
 
     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    * Create a new controller instance.
+    *
+    * @return void
+    */
     public function __construct()
     {
         $this->middleware('guest');
     }
 
     /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
+    * Get a validator for an incoming registration request.
+    *
+    * @param  array  $data
+    * @return \Illuminate\Contracts\Validation\Validator
+    */
     protected function validator(array $data)
     {
         return Validator::make($data, [
             'lastname' => 'max:255',
             'firstname' => 'max:255',
-            'age' => 'required|numeric',
+            'birth' => 'required|date',
             'email' => 'required|email|max:255|unique:users',
             'username' => 'required|max:255',
             'login' => 'required|max:255',
@@ -63,37 +63,37 @@ class RegisterController extends Controller
     }
 
     /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return User
-     */
+    * Create a new user instance after a valid registration.
+    *
+    * @param  array  $data
+    * @return User
+    */
     protected function create(array $data)
     {
         $datas = array();
         if($data['lastname'] != null || $data['lastname'] != '')
-            $datas['lastname'] = $data['lastname'];
+        $datas['lastname'] = $data['lastname'];
 
         if($data['firstname'] != null || $data['firstname'] != '')
-            $datas['firstname'] = $data['firstname'];
+        $datas['firstname'] = $data['firstname'];
 
-        $datas['age'] = $data['age'];
+        $datas['birth'] =  date('Y-m-d', strtotime($data['birth']));
         $datas['email'] = $data['email'];
         $datas['username'] = $data['username'];
         $datas['login'] = $data['login'];
         $datas['password'] = bcrypt($data['password']);
 
         if($data['twitch'] != null || $data['twitch'] != '')
-            $datas['twitch'] = $data['twitch'];
+        $datas['twitch'] = $data['twitch'];
 
         if($data['youtube'] != null || $data['youtube'] != '')
-            $datas['youtube'] = $data['youtube'];
+        $datas['youtube'] = $data['youtube'];
 
         if($data['facebook'] != null || $data['facebook'] != '')
-            $datas['facebook'] = $data['facebook'];
+        $datas['facebook'] = $data['facebook'];
 
         if($data['twitter'] != null || $data['twitter'] != '')
-            $datas['twitter'] = $data['twitter'];
+        $datas['twitter'] = $data['twitter'];
 
         return User::create($datas);
     }

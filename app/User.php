@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-      'email', 'password', 'firstname', 'lastname', 'age', 'username', 'login', 'steam_id', 'whitelisted', 'twitch', 'youtube'
+      'email', 'password', 'firstname', 'lastname', 'birth', 'username', 'login', 'steam_id', 'whitelisted', 'twitch', 'youtube'
     ];
 
     /**
@@ -40,8 +40,8 @@ class User extends Authenticatable
         return $this->hasMany('App\Topic');
     }
 
-    public function link(){
-        return $this->hasOne('App\Link');
+    public function links(){
+        return $this->hasMany('App\Link');
     }
 
     public function tournaments(){

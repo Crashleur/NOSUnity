@@ -15,7 +15,9 @@ class CreateLinksTable extends Migration
     {
       Schema::create('links', function (Blueprint $table) {
           $table->increments('id');
-          $table->string('destination');
+          $table->json('destination');
+          $table->string('type')->nullable();
+
 
           $table->integer('message_id')->nullable();
           $table->foreign('message_id')->references('id')->on('messages');

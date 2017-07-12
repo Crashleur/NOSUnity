@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('lastname')->nullable();
             $table->string('email')->unique();
             $table->string('password');
-            $table->integer('age');
+            $table->dateTime('birth');
             $table->string('username')->unique();
             $table->string('login');
             $table->string('steam_id')->nullable();
@@ -30,10 +30,6 @@ class CreateUsersTable extends Migration
             $table->string('twitter')->nullable();
 
             $table->integer('score')->nullable();
-
-
-            $table->integer('link_id')->nullable();
-            $table->foreign('link_id')->references('id')->on('link');
 
             $table->rememberToken();
             $table->timestamps();
